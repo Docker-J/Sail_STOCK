@@ -58,6 +58,8 @@ int g_pvs_bin;
 int limit_cpufreq = 0;
 #endif
 
+#define FREQ_TABLE_SIZE		40
+
 static DEFINE_MUTEX(driver_lock);
 static DEFINE_SPINLOCK(l2_lock);
 
@@ -950,7 +952,7 @@ static void __init bus_init(const struct l2_level *l2_level)
 }
 
 #ifdef CONFIG_CPU_FREQ_MSM
-static struct cpufreq_frequency_table freq_table[NR_CPUS][35];
+static struct cpufreq_frequency_table freq_table[NR_CPUS][FREQ_TABLE_SIZE];
 
 #ifdef CONFIG_MSM_CPU_VOLTAGE_CONTROL
 
